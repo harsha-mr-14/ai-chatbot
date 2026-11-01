@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCE Hassan - CSE Class & Timetable AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body class="theme-modern">
+  <!-- Top Banner / College Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <span class="logo-emoji">🎓</span>
+        </div>
+        <div class="brand-info">
+          <div class="college-title">MALNAD COLLEGE OF ENGINEERING, HASSAN</div>
+          <div class="dept-title">Department of Computer Science and Engineering</div>
+          <div class="badges-row">
+            <span class="badge badge-primary">III Sem CSE - Sec C</span>
+            <span class="badge badge-accent">Room: EE301</span>
+            <span class="badge badge-secondary">AY 2026-27 (ODD)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Dark / Light Theme Toggle -->
+        <button id="themeToggleBtn" class="btn btn-outline" title="Toggle Dark/Light Mode">
+          <span class="btn-icon" id="themeIcon">🌙</span>
+          <span class="btn-label" id="themeLabel">Dark Mode</span>
+        </button>
+
+        <!-- Time Machine Simulator Button -->
+        <button id="timeMachineBtn" class="btn btn-outline" title="Simulate any day or time">
+          <span class="btn-icon">⏱️</span>
+          <span class="btn-label">Time Simulator</span>
+        </button>
+
+        <!-- Gemini API Key Settings -->
+        <button id="aiSettingsBtn" class="btn btn-outline" title="AI Model Settings (Optional Gemini API)">
+          <span class="btn-icon">✨</span>
+          <span class="btn-label">AI Settings</span>
+        </button>
+
+        <!-- Original Timetable Document Modal Button -->
+        <button id="viewDocBtn" class="btn btn-primary" title="View official signed timetable document">
+          <span class="btn-icon">📄</span>
+          <span class="btn-label">Official Timetable</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Status Bar -->
+  <section class="live-status-bar" id="liveStatusBar">
+    <div class="status-container">
+      <div class="live-clock-card">
+        <div class="live-indicator">
+          <span class="pulse-dot"></span>
+          <span class="live-text" id="liveModeText">LIVE CLOCK</span>
+        </div>
+        <div class="clock-display" id="clockDisplay">Monday, 08:30 AM</div>
+      </div>
+
+      <div class="status-widget current-class-widget" id="currentClassWidget">
+        <div class="widget-label">NOW IN SESSION</div>
+        <div class="widget-value" id="currentClassName">Checking schedule...</div>
+        <div class="widget-meta" id="currentClassMeta">Room EE301 • Faculty</div>
+      </div>
+
+      <div class="status-widget next-class-widget" id="nextClassWidget">
+        <div class="widget-label">UP NEXT</div>
+        <div class="widget-value" id="nextClassName">--</div>
+        <div class="widget-meta" id="nextClassMeta">--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Time Simulator Drawer / Bar (Hidden by default) -->
+  <div class="time-simulator-panel" id="timeSimulatorPanel">
+    <div class="sim-inner">
+      <div class="sim-header">
+        <span class="sim-title">⏱️ Class Time Simulator (Time Machine)</span>
+        <span class="sim-help">Test what the bot says at any given day or hour of the week:</span>
+      </div>
+      <div class="sim-controls">
+        <label>
+          Day:
+          <select id="simDaySelect">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+        </label>
+        <label>
+          Time:
+          <input type="time" id="simTimeInput" value="11:15">
+        </label>
+        <button id="applySimBtn" class="btn btn-sm btn-primary">Apply Simulator</button>
+        <button id="resetLiveBtn" class="btn btn-sm btn-outline">Reset to Real Time</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Tabs -->
+  <nav class="main-tabs-nav">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="tab-chat">
+        <span class="tab-icon">💬</span> AI Class Bot
+      </button>
+      <button class="nav-tab" data-tab="tab-timetable">
+        <span class="tab-icon">🗓️</span> Full Timetable Grid
+      </button>
+      <button class="nav-tab" data-tab="tab-faculty">
+        <span class="tab-icon">👨‍🏫</span> Faculty Directory
+      </button>
+      <button class="nav-tab" data-tab="tab-venues">
+        <span class="tab-icon">🏛️</span> Classrooms & Labs
+      </button>
+      <button class="nav-tab" data-tab="tab-batches">
+        <span class="tab-icon">📊</span> Batch Guide (Python & Excel)
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Layout -->
+  <main class="main-content">
+    <!-- TAB 1: AI Chatbot -->
+    <div class="tab-pane active" id="tab-chat">
+      <div class="chat-wrapper">
+        <div class="chat-card">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="bot-profile">
+              <div class="bot-avatar">🤖</div>
+              <div class="bot-details">
+                <div class="bot-name">MCE CSE Smart Assistant</div>
+                <div class="bot-subtext">Instant answers for Classrooms, Timings, Faculty & Labs</div>
+              </div>
+            </div>
+            <div class="chat-actions">
+              <button id="ttsToggleBtn" class="icon-btn" title="Toggle Voice Speech Output">🔊</button>
+              <button id="clearChatBtn" class="icon-btn" title="Clear Chat History">🗑️</button>
+              <button id="exportChatBtn" class="icon-btn" title="Export Conversation">💾</button>
+            </div>
+          </div>
+
+          <!-- Chat Messages Scroll Area -->
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages rendered by JavaScript -->
+          </div>
+
+          <!-- Suggestion Chips Bar -->
+          <div class="suggestion-chips-container">
+            <div class="chips-scroll" id="chipsScroll">
+              <button class="chip" data-query="Where is my class right now?">📍 Where is my class right now?</button>
+              <button class="chip" data-query="What is my next class?">⏭️ Next class</button>
+              <button class="chip" data-query="Monday free periods">🕊️ Monday free periods</button>
+              <button class="chip" data-query="Wednesday free time">🕊️ Wednesday free time</button>
+              <button class="chip" data-query="What is today's schedule?">📅 Today's schedule</button>
+              <button class="chip" data-query="When does Dr. Roopa take class?">👨‍🏫 Dr. Roopa's classes</button>
+              <button class="chip" data-query="Where is Unix Lab?">🧪 Where is Unix Lab?</button>
+              <button class="chip" data-query="Thursday labs">🧪 Thursday labs</button>
+              <button class="chip" data-query="Show Friday Python and Excel batches">📊 Batch details</button>
+              <button class="chip" data-query="When are the break timings?">☕ Break timings</button>
+              <button class="chip" data-query="Who is our HOD?">🏛️ Who is HOD?</button>
+              <button class="chip" data-query="What classes are in Room EE301?">🏢 Room EE301 details</button>
+              <button class="chip" data-query="Show Saturday timetable">🗓️ Saturday classes</button>
+            </div>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div class="chat-input-area">
+            <form id="chatForm" class="chat-input-form">
+              <button type="button" id="voiceMicBtn" class="icon-btn mic-btn" title="Speak question (Voice Recognition)">
+                <span class="mic-icon">🎙️</span>
+              </button>
+              <input 
+                type="text" 
+                id="userInput" 
+                class="chat-text-input" 
+                placeholder="Ask anything: 'Where is my class now?', 'Who teaches OOPJ?', 'Thursday schedule'..."
+                autocomplete="off"
+              />
+              <button type="submit" id="sendBtn" class="btn btn-send" title="Send Question">
+                <span>Send</span>
+                <span class="send-arrow">➔</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Full Timetable Grid -->
+    <div class="tab-pane" id="tab-timetable">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🗓️ III Semester C S & Engg - Section C Schedule</h2>
+            <p class="section-subtitle">Malnad College of Engineering, Hassan | Room No: EE301</p>
+          </div>
+          <div class="table-legend">
+            <span class="legend-item"><span class="color-dot theory"></span> Theory</span>
+            <span class="legend-item"><span class="color-dot lab"></span> Lab / Practical</span>
+            <span class="legend-item"><span class="color-dot project"></span> Project / Training</span>
+            <span class="legend-item"><span class="color-dot break"></span> Break</span>
+            <span class="legend-item"><span class="color-dot active-now"></span> Active Right Now</span>
+          </div>
+        </div>
+
+        <div class="timetable-scroll-wrapper">
+          <table class="timetable-grid" id="timetableGrid">
+            <!-- Rendered dynamically via JS -->
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Faculty Directory -->
+    <div class="tab-pane" id="tab-faculty">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">👨‍🏫 Faculty & Staff Directory</h2>
+            <p class="section-subtitle">Professors, Lab Instructors, HOD, and Timetable Coordinators</p>
+          </div>
+          <div class="search-box">
+            <input type="text" id="facultySearchInput" placeholder="Search faculty name or subject..." />
+          </div>
+        </div>
+
+        <div class="faculty-cards-grid" id="facultyCardsGrid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Classrooms & Labs Explorer -->
+    <div class="tab-pane" id="tab-venues">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🏛️ Classrooms & Laboratories Guide</h2>
+            <p class="section-subtitle">Venues and locations for III Sem CSE Section C classes</p>
+          </div>
+        </div>
+
+        <div class="venues-grid" id="venuesGrid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: Batches Guide -->
+    <div class="tab-pane" id="tab-batches">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📊 Batch-wise Practical Schedule</h2>
+            <p class="section-subtitle">Course 25CS307B/C: Friday 11:00 AM - 1:00 PM</p>
+          </div>
+        </div>
+
+        <div class="batch-columns">
+          <div class="batch-col">
+            <div class="batch-col-header excel-header">
+              <h3>📗 Data Analytics with Excel</h3>
+              <span class="badge">Batches B1 to B4</span>
+            </div>
+            <div class="batch-list" id="excelBatchList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="batch-col">
+            <div class="batch-col-header python-header">
+              <h3>📘 Data Visualization with Python</h3>
+              <span class="badge">Batches B1 to B3</span>
+            </div>
+            <div class="batch-list" id="pythonBatchList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL 1: Official Timetable Document Preview -->
+  <div class="modal-overlay" id="docModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">📄 Official Timetable Document (MCE Hassan)</h3>
+        <button class="modal-close" id="closeDocModal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted mb-2">Original tentative timetable for III Semester CSE Section C (Room EE301):</p>
+        <div class="doc-img-container">
+          <img src="data/timetable_image.png" alt="Official College Timetable" class="official-doc-img" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="data/timetable_image.png" target="_blank" class="btn btn-outline">Open Full Resolution in New Tab</a>
+        <button class="btn btn-primary" id="closeDocBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: AI Settings (Optional Gemini API) -->
+  <div class="modal-overlay" id="aiSettingsModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">✨ AI Intelligence Settings</h3>
+        <button class="modal-close" id="closeSettingsModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="info-callout">
+          <strong>Smart Built-in Engine is ACTIVE:</strong> The chatbot includes a 100% offline, zero-latency rule and time reasoning engine for all class, faculty, and room queries.
+        </div>
+        <div class="form-group mt-3">
+          <label for="geminiApiKeyInput"><strong>Optional: Gemini API Key</strong></label>
+          <p class="text-sm text-muted">Add your Google Gemini API key if you want open-ended generative responses powered by Gemini 2.0 Flash:</p>
+          <input type="password" id="geminiApiKeyInput" class="form-control" placeholder="AIzaSy..." />
+        </div>
+        <div class="form-group mt-2">
+          <label>
+            <input type="checkbox" id="useGeminiCheckbox" />
+            Enable Gemini LLM mode for answering queries
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="clearApiKeyBtn">Clear Key</button>
+        <button class="btn btn-primary" id="saveAiSettingsBtn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div>Developed for <strong>Malnad College of Engineering, Hassan</strong> • Dept. of CSE</div>
+      <div class="footer-meta">HOD: Dr. Ananda Babu J • Timetable Coordinators: Mr. Vinod A M, Mrs. Shobha Chandra</div>
+    </div>
+  </footer>
+
+  <script src="data/timetable_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

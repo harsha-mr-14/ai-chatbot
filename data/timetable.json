@@ -1,0 +1,781 @@
+{
+  "college": {
+    "name": "Malnad College of Engineering, Hassan",
+    "short_name": "MCE Hassan",
+    "department": "Department of Computer Science and Engineering",
+    "academic_year": "2026-27 (ODD Semester)",
+    "semester": "III Semester C S & Engg",
+    "section": "C",
+    "default_room": "EE301",
+    "hod": {
+      "name": "Dr. Ananda Babu J",
+      "title": "Professor & Head of Department (CSE)"
+    },
+    "timetable_coordinators": [
+      { "name": "Mr. Vinod A M", "role": "Timetable Coordinator" },
+      { "name": "Mrs. Shobha Chandra", "role": "Timetable Coordinator" }
+    ]
+  },
+  "time_slots": [
+    { "id": 1, "start": "08:30", "end": "09:30", "label": "8:30am - 9:30am" },
+    { "id": 2, "start": "09:30", "end": "10:30", "label": "9:30am - 10:30am" },
+    { "id": "break1", "start": "10:30", "end": "11:00", "label": "10:30am - 11:00am", "is_break": true, "break_name": "Morning Tea Break" },
+    { "id": 3, "start": "11:00", "end": "12:00", "label": "11:00am - 12:00pm" },
+    { "id": 4, "start": "12:00", "end": "13:00", "label": "12:00pm - 1:00pm" },
+    { "id": "break2", "start": "13:00", "end": "14:00", "label": "1:00pm - 2:00pm", "is_break": true, "break_name": "Lunch Break" },
+    { "id": 5, "start": "14:00", "end": "15:00", "label": "2:00pm - 3:00pm" },
+    { "id": 6, "start": "15:00", "end": "16:00", "label": "3:00pm - 4:00pm" },
+    { "id": 7, "start": "16:00", "end": "17:00", "label": "4:00pm - 5:00pm" },
+    { "id": 8, "start": "17:00", "end": "18:00", "label": "5:00pm - 6:00pm" }
+  ],
+  "courses": [
+    {
+      "code": "25MACS301",
+      "short_name": "M3",
+      "title": "Mathematics for Computer Science",
+      "faculty": "Dr. Roopa G S",
+      "faculty_short": "RGS",
+      "type": "Theory",
+      "room": "EE301",
+      "description": "Discrete mathematics, probability, linear algebra, and mathematical foundations for computer science."
+    },
+    {
+      "code": "25CS302",
+      "short_name": "DDCO",
+      "title": "Digital Design and Computer Organization",
+      "faculty": "Mrs. Ayeesha Siddiqa",
+      "faculty_assistants": "RNC + SKR",
+      "type": "Theory",
+      "room": "EE301",
+      "description": "Logic design, combinatorial & sequential circuits, processor architecture, and memory hierarchy."
+    },
+    {
+      "code": "25CS303",
+      "short_name": "DSA",
+      "title": "Data Structures and its Applications",
+      "faculty": "Ms. Bimba Prasad",
+      "faculty_short": "BP",
+      "type": "Theory",
+      "room": "EE301",
+      "description": "Arrays, stacks, queues, linked lists, trees, graphs, sorting, searching, and algorithm analysis."
+    },
+    {
+      "code": "25CS304",
+      "short_name": "OOPJ",
+      "title": "OOPs with Java",
+      "faculty": "Mrs. Shruthi K R",
+      "faculty_assistants": "HS + MMM",
+      "type": "Theory",
+      "room": "EE301",
+      "description": "Object-Oriented Programming concepts in Java: classes, inheritance, polymorphism, packages, and multithreading."
+    },
+    {
+      "code": "25CS305",
+      "short_name": "DSA Lab",
+      "title": "Data Structures Laboratory",
+      "faculty": "Ms. Bimba Prasad + Dr. Chandrika J + Mrs. Sindhu K S",
+      "type": "Practical / Lab",
+      "room": "Honeywell Lab",
+      "timing_hint": "Tuesday 2:00pm - 4:00pm",
+      "description": "Hands-on implementation of stacks, queues, trees, and graph algorithms."
+    },
+    {
+      "code": "25CS306",
+      "short_name": "UNIX Lab",
+      "title": "Unix and Shell Programming Laboratory",
+      "faculty": "Mrs. Nithyashree R + Mrs. M B Prakruthi + Mr. Krishna Swaroop",
+      "type": "Practical / Lab",
+      "room": "CSLAB-4",
+      "timing_hint": "Monday 2:00pm - 4:00pm",
+      "description": "Unix architecture, shell scripting, process management, filters, and command-line tools."
+    },
+    {
+      "code": "25CS307B/C",
+      "short_name": "PYTHON / EXCEL",
+      "title": "Data Analytics with Excel / Data Visualization with Python",
+      "faculty": "Multiple Faculty (Batch-wise)",
+      "type": "Practical / Lab",
+      "room": "CS LAB-1, CS LAB-2, CS LAB-4, EEE LAB, Honeywell Lab, IS LAB-1, IS LAB-2",
+      "timing_hint": "Friday 11:00am - 1:00pm",
+      "description": "Modern data processing with Excel formulas, pivot tables, and Python data visualization libraries."
+    },
+    {
+      "code": "25SCR",
+      "short_name": "SCR",
+      "title": "Community / Societal Project",
+      "faculty": "RNU + SKR",
+      "type": "Project / Activity",
+      "room": "EE301",
+      "timing_hint": "Friday 8:30am - 9:30am",
+      "description": "Social impact engineering initiatives and community service projects."
+    },
+    {
+      "code": "25PT1",
+      "short_name": "PT1",
+      "title": "Placement Training I",
+      "faculty": "Placement Training Cell",
+      "type": "Training",
+      "room": "EE301",
+      "timing_hint": "Monday 8:30am - 9:30am",
+      "description": "Aptitude, logical reasoning, and career readiness preparation."
+    },
+    {
+      "code": "25NYP1",
+      "short_name": "NSS/YOGA/PE",
+      "title": "NSS, YOGA, PE",
+      "faculty": "Faculty Advisor",
+      "type": "Extracurricular",
+      "room": "Designated Campus Grounds / Halls",
+      "description": "National Service Scheme, Yoga practice, and Physical Education."
+    },
+    {
+      "code": "25BCM301",
+      "short_name": "DIP Maths / M3-DIP",
+      "title": "Bridge Course Mathematics - I (Mandatory Non-Credit Course)",
+      "faculty": "Dr. Shashi Kumar N S",
+      "type": "Bridge Course",
+      "room": "SA101 (Fri 5-6pm) / CS305 (Tue 4-5pm)",
+      "description": "Bridge course mathematics for lateral entry (diploma) students."
+    },
+    {
+      "code": "24CS563",
+      "short_name": "IoT",
+      "title": "Internet of Things",
+      "faculty": "Department Faculty",
+      "type": "Elective / Open Course",
+      "room": "EE301",
+      "timing_hint": "Tuesday 12:00pm - 1:00pm",
+      "description": "Embedded sensors, microcontrollers, networking protocols, and IoT cloud platforms."
+    },
+    {
+      "code": "OOPJ-P",
+      "short_name": "OOPJ Practical",
+      "title": "OOPs with Java Practical",
+      "faculty": "Mrs. Shruthi K R & Team",
+      "type": "Practical / Lab",
+      "room": "CSLAB-2",
+      "timing_hint": "Thursday 8:30am - 10:30am",
+      "description": "Java hands-on coding and lab exercises."
+    },
+    {
+      "code": "DDCO-P",
+      "short_name": "DDCO Practical",
+      "title": "Digital Design Practical",
+      "faculty": "Mrs. Ayeesha Siddiqa & Team",
+      "type": "Practical / Lab",
+      "room": "H/W Lab (Hardware Lab)",
+      "timing_hint": "Saturday 8:30am - 10:30am",
+      "description": "Digital IC experiments, logic gates verification, and hardware circuits."
+    }
+  ],
+  "batches_25CS307BC": {
+    "excel": {
+      "course_title": "Data Analytics with Excel",
+      "batches": [
+        { "batch": "B1", "faculty": "HVS + PS + RNC + SJAM", "venue": "CS LAB - 1" },
+        { "batch": "B2", "faculty": "HMC + NR + AA", "venue": "CS LAB - 2" },
+        { "batch": "B3", "faculty": "KKS + AS + RD", "venue": "EEE LAB" },
+        { "batch": "B4", "faculty": "TMR + PMS + SKR", "venue": "Honeywell Lab" }
+      ]
+    },
+    "python": {
+      "course_title": "Data Visualization with Python",
+      "batches": [
+        { "batch": "B1", "faculty": "HMK + JC + KSA", "venue": "CS LAB - 4" },
+        { "batch": "B2", "faculty": "AMV + SCK + BP", "venue": "IS LAB - 2 (PL Lab)" },
+        { "batch": "B3", "faculty": "HS + RNU + MMM", "venue": "IS LAB - 1 (CC Lab)" }
+      ]
+    }
+  },
+  "venues": [
+    { "name": "EE301", "type": "Classroom", "description": "Main Theory Classroom for III Sem CSE Section C (3rd Floor, Electrical & Electronics Block)" },
+    { "name": "CSLAB-4", "type": "Computer Lab", "description": "Computer Science Lab 4 - Venue for Unix and Shell Programming Lab & Python Viz Batch B1" },
+    { "name": "Honeywell Lab", "type": "Specialized Lab", "description": "Honeywell Sponsored Computing Lab - Venue for DSA Lab & Excel Batch B4" },
+    { "name": "CSLAB-2", "type": "Computer Lab", "description": "Computer Science Lab 2 - Venue for OOPJ Practical & Excel Batch B2" },
+    { "name": "CS LAB - 1", "type": "Computer Lab", "description": "Computer Science Lab 1 - Venue for Excel Batch B1" },
+    { "name": "EEE LAB", "type": "Lab", "description": "Electrical & Electronics Lab - Venue for Excel Batch B3" },
+    { "name": "IS LAB - 1 (CC Lab)", "type": "Computer Lab", "description": "Information Science CC Lab - Venue for Python Viz Batch B3" },
+    { "name": "IS LAB - 2 (PL Lab)", "type": "Computer Lab", "description": "Information Science PL Lab - Venue for Python Viz Batch B2" },
+    { "name": "H/W Lab", "type": "Hardware Lab", "description": "Hardware and Digital Electronics Laboratory - Venue for DDCO Practical" },
+    { "name": "CS305", "type": "Classroom", "description": "Classroom CS305 - Venue for Tuesday M3-DIP session (4:00pm - 5:00pm)" },
+    { "name": "SA101", "type": "Hall / Classroom", "description": "Science & Arts Hall 101 - Venue for Friday DIP Maths session (5:00pm - 6:00pm)" }
+  ],
+  "faculty_directory": [
+    {
+      "name": "Dr. Roopa G S",
+      "designation": "Associate Professor / Faculty",
+      "department": "Mathematics",
+      "subject": "Mathematics for Computer Science (M3)",
+      "course_code": "25MACS301"
+    },
+    {
+      "name": "Mrs. Ayeesha Siddiqa",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Digital Design and Computer Organization (DDCO) & DDCO-P",
+      "course_code": "25CS302",
+      "assistants": "RNC + SKR"
+    },
+    {
+      "name": "Ms. Bimba Prasad",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Data Structures and its Applications (DSA) & DSA Lab",
+      "course_code": "25CS303 / 25CS305"
+    },
+    {
+      "name": "Mrs. Shruthi K R",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "OOPs with Java (OOPJ) & OOPJ Practical",
+      "course_code": "25CS304",
+      "assistants": "HS + MMM"
+    },
+    {
+      "name": "Dr. Chandrika J",
+      "designation": "Professor / Faculty",
+      "department": "Computer Science and Engineering",
+      "subject": "Data Structures Laboratory (DSA Lab)",
+      "course_code": "25CS305"
+    },
+    {
+      "name": "Mrs. Sindhu K S",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Data Structures Laboratory (DSA Lab)",
+      "course_code": "25CS305"
+    },
+    {
+      "name": "Mrs. Nithyashree R",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Unix and Shell Programming Laboratory",
+      "course_code": "25CS306"
+    },
+    {
+      "name": "Mrs. M B Prakruthi",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Unix and Shell Programming Laboratory",
+      "course_code": "25CS306"
+    },
+    {
+      "name": "Mr. Krishna Swaroop",
+      "designation": "Assistant Professor",
+      "department": "Computer Science and Engineering",
+      "subject": "Unix and Shell Programming Laboratory",
+      "course_code": "25CS306"
+    },
+    {
+      "name": "Dr. Shashi Kumar N S",
+      "designation": "Faculty in Mathematics",
+      "department": "Mathematics",
+      "subject": "Bridge Course Mathematics - I (Mandate Non-Credit Course / DIP Maths)",
+      "course_code": "25BCM301"
+    },
+    {
+      "name": "Dr. Ananda Babu J",
+      "designation": "Professor & Head of Department",
+      "department": "Computer Science and Engineering",
+      "subject": "Head of Department (CSE)"
+    },
+    {
+      "name": "Mr. Vinod A M",
+      "designation": "Faculty / Timetable Coordinator",
+      "department": "Computer Science and Engineering",
+      "subject": "Timetable Coordination"
+    },
+    {
+      "name": "Mrs. Shobha Chandra",
+      "designation": "Faculty / Timetable Coordinator",
+      "department": "Computer Science and Engineering",
+      "subject": "Timetable Coordination"
+    }
+  ],
+  "schedule": {
+    "Monday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 09:30",
+        "start": "08:30",
+        "end": "09:30",
+        "code": "25PT1",
+        "subject": "Placement Training I (PT1)",
+        "room": "EE301",
+        "faculty": "Placement Cell Faculty",
+        "type": "Training"
+      },
+      {
+        "slot": 2,
+        "time": "09:30 - 10:30",
+        "start": "09:30",
+        "end": "10:30",
+        "code": "25CS304",
+        "subject": "OOPs with Java (OOPJ)",
+        "room": "EE301",
+        "faculty": "Mrs. Shruthi K R (HS+MMM)",
+        "type": "Theory"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 12:00",
+        "start": "11:00",
+        "end": "12:00",
+        "code": "25MACS301",
+        "subject": "Mathematics for Computer Science (M3)",
+        "room": "EE301",
+        "faculty": "Dr. Roopa G S",
+        "type": "Theory"
+      },
+      {
+        "slot": 4,
+        "time": "12:00 - 13:00",
+        "start": "12:00",
+        "end": "13:00",
+        "subject": "Free Period / Library / Self Study",
+        "room": "EE301 / Library",
+        "faculty": "-",
+        "type": "Free"
+      },
+      {
+        "slot": "break2",
+        "time": "13:00 - 14:00",
+        "start": "13:00",
+        "end": "14:00",
+        "subject": "Lunch Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 5,
+        "time": "14:00 - 16:00",
+        "start": "14:00",
+        "end": "16:00",
+        "span": 2,
+        "code": "25CS306",
+        "subject": "Unix and Shell Programming Laboratory (UNIX Lab)",
+        "room": "CSLAB-4",
+        "faculty": "Mrs. Nithyashree R + Mrs. M B Prakruthi + Mr. Krishna Swaroop",
+        "type": "Practical / Lab"
+      },
+      {
+        "slot": 7,
+        "time": "16:00 - 17:00",
+        "start": "16:00",
+        "end": "17:00",
+        "subject": "No scheduled class",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      },
+      {
+        "slot": 8,
+        "time": "17:00 - 18:00",
+        "start": "17:00",
+        "end": "18:00",
+        "subject": "No scheduled class",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      }
+    ],
+    "Tuesday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 09:30",
+        "start": "08:30",
+        "end": "09:30",
+        "code": "25MACS301",
+        "subject": "Mathematics for Computer Science (M3)",
+        "room": "EE301",
+        "faculty": "Dr. Roopa G S",
+        "type": "Theory"
+      },
+      {
+        "slot": 2,
+        "time": "09:30 - 10:30",
+        "start": "09:30",
+        "end": "10:30",
+        "code": "25CS302",
+        "subject": "Digital Design and Computer Organization (DDCO)",
+        "room": "EE301",
+        "faculty": "Mrs. Ayeesha Siddiqa (RNC+SKR)",
+        "type": "Theory"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 12:00",
+        "start": "11:00",
+        "end": "12:00",
+        "code": "25CS304",
+        "subject": "OOPs with Java (OOPJ)",
+        "room": "EE301",
+        "faculty": "Mrs. Shruthi K R (HS+MMM)",
+        "type": "Theory"
+      },
+      {
+        "slot": 4,
+        "time": "12:00 - 13:00",
+        "start": "12:00",
+        "end": "13:00",
+        "code": "24CS563",
+        "subject": "Internet of Things (IoT)",
+        "room": "EE301",
+        "faculty": "Department Faculty",
+        "type": "Theory"
+      },
+      {
+        "slot": "break2",
+        "time": "13:00 - 14:00",
+        "start": "13:00",
+        "end": "14:00",
+        "subject": "Lunch Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 5,
+        "time": "14:00 - 16:00",
+        "start": "14:00",
+        "end": "16:00",
+        "span": 2,
+        "code": "25CS305",
+        "subject": "Data Structures Laboratory (DSA Lab)",
+        "room": "Honeywell Lab",
+        "faculty": "Ms. Bimba Prasad + Dr. Chandrika J + Mrs. Sindhu K S",
+        "type": "Practical / Lab"
+      },
+      {
+        "slot": 7,
+        "time": "16:00 - 17:00",
+        "start": "16:00",
+        "end": "17:00",
+        "code": "25BCM301",
+        "subject": "M3-DIP CS305 (Bridge Course Mathematics - I)",
+        "room": "CS305",
+        "faculty": "Dr. Shashi Kumar N S",
+        "type": "Bridge Course"
+      },
+      {
+        "slot": 8,
+        "time": "17:00 - 18:00",
+        "start": "17:00",
+        "end": "18:00",
+        "subject": "No scheduled class",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      }
+    ],
+    "Wednesday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 09:30",
+        "start": "08:30",
+        "end": "09:30",
+        "subject": "Free Period",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      },
+      {
+        "slot": 2,
+        "time": "09:30 - 10:30",
+        "start": "09:30",
+        "end": "10:30",
+        "code": "25CS303",
+        "subject": "Data Structures and its Applications (DSA)",
+        "room": "EE301",
+        "faculty": "Ms. Bimba Prasad",
+        "type": "Theory"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 12:00",
+        "start": "11:00",
+        "end": "12:00",
+        "code": "25CS302",
+        "subject": "Digital Design and Computer Organization (DDCO)",
+        "room": "EE301",
+        "faculty": "Mrs. Ayeesha Siddiqa",
+        "type": "Theory"
+      },
+      {
+        "slot": 4,
+        "time": "12:00 - 13:00",
+        "start": "12:00",
+        "end": "13:00",
+        "subject": "Free Period / Project Work",
+        "room": "EE301",
+        "faculty": "-",
+        "type": "Free"
+      },
+      {
+        "slot": "break2",
+        "time": "13:00 - 14:00",
+        "start": "13:00",
+        "end": "14:00",
+        "subject": "Lunch Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 5,
+        "time": "14:00 - 18:00",
+        "start": "14:00",
+        "end": "18:00",
+        "span": 4,
+        "subject": "Afternoon Off / Study & Lab Practice",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      }
+    ],
+    "Thursday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 10:30",
+        "start": "08:30",
+        "end": "10:30",
+        "span": 2,
+        "code": "OOPJ-P",
+        "subject": "OOPs with Java Practical (OOPJ-P)",
+        "room": "CSLAB-2",
+        "faculty": "Mrs. Shruthi K R (HS+MMM)",
+        "type": "Practical / Lab"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 12:00",
+        "start": "11:00",
+        "end": "12:00",
+        "code": "25CS303",
+        "subject": "Data Structures and its Applications (DSA)",
+        "room": "EE301",
+        "faculty": "Ms. Bimba Prasad",
+        "type": "Theory"
+      },
+      {
+        "slot": 4,
+        "time": "12:00 - 13:00",
+        "start": "12:00",
+        "end": "13:00",
+        "code": "25CS302",
+        "subject": "Digital Design and Computer Organization (DDCO)",
+        "room": "EE301",
+        "faculty": "Mrs. Ayeesha Siddiqa",
+        "type": "Theory"
+      },
+      {
+        "slot": "break2",
+        "time": "13:00 - 14:00",
+        "start": "13:00",
+        "end": "14:00",
+        "subject": "Lunch Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 5,
+        "time": "14:00 - 18:00",
+        "start": "14:00",
+        "end": "18:00",
+        "span": 4,
+        "subject": "Afternoon Off / Extra Practice",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      }
+    ],
+    "Friday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 09:30",
+        "start": "08:30",
+        "end": "09:30",
+        "code": "25SCR",
+        "subject": "Community / Societal Project (SCR)",
+        "room": "EE301",
+        "faculty": "RNU + SKR",
+        "type": "Project / Activity"
+      },
+      {
+        "slot": 2,
+        "time": "09:30 - 10:30",
+        "start": "09:30",
+        "end": "10:30",
+        "code": "25CS304",
+        "subject": "OOPs with Java (OOPJ)",
+        "room": "EE301",
+        "faculty": "Mrs. Shruthi K R",
+        "type": "Theory"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 13:00",
+        "start": "11:00",
+        "end": "13:00",
+        "span": 2,
+        "code": "25CS307B/C",
+        "subject": "PYTHON / EXCEL (Data Analytics & Data Visualization)",
+        "room": "Batch-wise Labs (CS LAB-1, CS LAB-2, CS LAB-4, EEE LAB, Honeywell, IS LAB-1/2)",
+        "faculty": "Batch Faculty Team",
+        "type": "Practical / Lab"
+      },
+      {
+        "slot": "break2",
+        "time": "13:00 - 14:00",
+        "start": "13:00",
+        "end": "14:00",
+        "subject": "Lunch Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 5,
+        "time": "14:00 - 17:00",
+        "start": "14:00",
+        "end": "17:00",
+        "span": 3,
+        "subject": "Free Period / Project Work",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      },
+      {
+        "slot": 8,
+        "time": "17:00 - 18:00",
+        "start": "17:00",
+        "end": "18:00",
+        "code": "25BCM301",
+        "subject": "DIP Maths (Bridge Course Mathematics - I)",
+        "room": "SA101",
+        "faculty": "Dr. Shashi Kumar N S",
+        "type": "Bridge Course"
+      }
+    ],
+    "Saturday": [
+      {
+        "slot": 1,
+        "time": "08:30 - 10:30",
+        "start": "08:30",
+        "end": "10:30",
+        "span": 2,
+        "code": "DDCO-P",
+        "subject": "Digital Design Practical (DDCO-P)",
+        "room": "H/W Lab",
+        "faculty": "Mrs. Ayeesha Siddiqa & Team",
+        "type": "Practical / Lab"
+      },
+      {
+        "slot": "break1",
+        "time": "10:30 - 11:00",
+        "start": "10:30",
+        "end": "11:00",
+        "subject": "Morning Break",
+        "room": "Cafeteria / Campus",
+        "faculty": "-",
+        "type": "Break"
+      },
+      {
+        "slot": 3,
+        "time": "11:00 - 12:00",
+        "start": "11:00",
+        "end": "12:00",
+        "code": "25CS303",
+        "subject": "Data Structures and its Applications (DSA)",
+        "room": "EE301",
+        "faculty": "Ms. Bimba Prasad",
+        "type": "Theory"
+      },
+      {
+        "slot": 4,
+        "time": "12:00 - 13:00",
+        "start": "12:00",
+        "end": "13:00",
+        "code": "25MACS301",
+        "subject": "Mathematics for Computer Science (M3)",
+        "room": "EE301",
+        "faculty": "Dr. Roopa G S",
+        "type": "Theory"
+      },
+      {
+        "slot": 5,
+        "time": "13:00 - 18:00",
+        "start": "13:00",
+        "end": "18:00",
+        "subject": "Weekend / Half Day After 1:00 PM",
+        "room": "-",
+        "faculty": "-",
+        "type": "Free"
+      }
+    ],
+    "Sunday": [
+      {
+        "slot": 1,
+        "time": "All Day",
+        "start": "00:00",
+        "end": "23:59",
+        "subject": "Sunday - College Holiday (No Classes)",
+        "room": "-",
+        "faculty": "-",
+        "type": "Holiday"
+      }
+    ]
+  }
+}
