@@ -167,7 +167,13 @@ SLANG_AND_TYPOS: Dict[str, str] = {
     "lec": "lecture",
     "lecs": "lectures",
     "sub": "subject",
-    "subs": "subjects"
+    "subs": "subjects",
+
+    # Themes & Modes
+    "daark": "dark",
+    "drk": "dark",
+    "theam": "theme",
+    "theem": "theme"
 }
 
 # Standard English words that should never be fuzzy-replaced by domain jargon
@@ -206,7 +212,9 @@ COLLEGE_VOCABULARY = [
     "chandrika", "sindhu", "nithyashree", "prakruthi", "krishna", "swaroop",
     "shashi", "ananda", "babu", "vinod", "shobha",
     # Rooms
-    "ee301", "cslab", "honeywell"
+    "ee301", "cslab", "honeywell",
+    # Theme
+    "dark", "light", "theme", "mode"
 ]
 
 def levenshtein_distance(s1: str, s2: str) -> int:

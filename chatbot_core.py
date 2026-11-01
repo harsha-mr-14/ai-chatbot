@@ -615,8 +615,16 @@ def _compute_answer(q: str, query: str, simulated_day: Optional[str] = None, sim
             "- 👨‍🏫 **Faculty details** (e.g., *'Who teaches DSA?'* or *'Dr. Roopa'*)\n"
             "- 🧪 **Lab venues & rooms** (e.g., *'Where is Unix Lab?'* or *'Where is EE301?'*)\n"
             "- 📊 **Excel / Python batches** (e.g., *'Show batch details'*)\n"
-            "- ⏰ **Break timings**\n\n"
+            "- ⏰ **Break timings**\n"
+            "- 🌙 **Dark / Light theme** (Click the toggle button in the header)\n\n"
             "What would you like to know?"
+        )
+
+    # Theme Toggle intent
+    if any(k in q for k in ["dark theme", "light theme", "dark mode", "light mode", "change theme", "toggle theme", "switch theme", "theam"]):
+        return (
+            "🌓 **Theme Customization:**\n\n"
+            "You can switch between **Dark Mode** 🌙 and **Light Mode** ☀️ anytime using the **Dark Mode / Light Mode** button located in the top-right header controls! Your choice is automatically saved for your next visit."
         )
 
     # Current class / Where am I / Right now

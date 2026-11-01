@@ -95,7 +95,8 @@ const SLANG_AND_TYPOS = {
   'teching': 'teaching', 'techer': 'teacher', 'roop': 'roopa', 'rupa': 'roopa',
   'sruthi': 'shruthi', 'shruti': 'shruthi', 'ayesha': 'ayeesha', 'aisha': 'ayeesha',
   'bimbha': 'bimba', 'lib': 'library', 'dept': 'department', 'lec': 'lecture', 'lecs': 'lectures',
-  'sub': 'subject', 'subs': 'subjects'
+  'sub': 'subject', 'subs': 'subjects',
+  'daark': 'dark', 'drk': 'dark', 'theam': 'theme', 'theem': 'theme'
 };
 
 const COMMON_ENGLISH_WORDS = new Set([
@@ -121,7 +122,8 @@ const COLLEGE_VOCABULARY = [
   'unix', 'python', 'excel', 'iot', 'mathematics', 'maths', 'bridge', 'placement',
   'project', 'roopa', 'ayeesha', 'siddiqa', 'bimba', 'prasad', 'shruthi', 'chandrika',
   'sindhu', 'nithyashree', 'prakruthi', 'krishna', 'swaroop', 'shashi', 'ananda',
-  'babu', 'vinod', 'shobha', 'ee301', 'cslab', 'honeywell'
+  'babu', 'vinod', 'shobha', 'ee301', 'cslab', 'honeywell',
+  'dark', 'light', 'theme', 'mode'
 ];
 
 function levenshteinDistance(s1, s2) {
@@ -250,6 +252,23 @@ async function loadData() {
   }
 }
 
+// Theme Management (Dark / Light)
+function applyTheme(theme) {
+  state.theme = theme;
+  localStorage.setItem('mce_theme', theme);
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+  if (theme === 'dark') {
+    document.body.classList.add('dark-theme');
+    if (themeIcon) themeIcon.textContent = '☀️';
+    if (themeLabel) themeLabel.textContent = 'Light Mode';
+  } else {
+    document.body.classList.remove('dark-theme');
+    if (themeIcon) themeIcon.textContent = '🌙';
+    if (themeLabel) themeLabel.textContent = 'Dark Mode';
+  }
+}
+
 // Setup UI Elements & Navigation
 function setupUI() {
   // Navigation Tabs
@@ -269,10 +288,22 @@ function setupUI() {
   // Settings Init
   document.getElementById('geminiApiKeyInput').value = state.geminiApiKey;
   document.getElementById('useGeminiCheckbox').checked = state.useGemini;
+
+  // Apply Theme Preference on Load
+  applyTheme(state.theme);
 }
 
 // Setup Event Listeners
 function setupEventListeners() {
+  // Theme Toggle Button
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const newTheme = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  }
+
   // Chat form submit
   const chatForm = document.getElementById('chatForm');
   chatForm.addEventListener('submit', (e) => {
@@ -624,6 +655,21 @@ function processQueryLocally(rawQuery) {
   // Greetings
   if (/^(hi|hello|hey|hola|namaste|good morning|good afternoon|good evening)\b/.test(q)) {
     return `Hello! 👋 How can I help you today? Ask me about your **current class**, **next lecture**, **room locations**, **faculty**, or **batch timings**!`;
+  }
+
+  // Theme Switching Command
+  if (/(dark|light)\s*(mode|theme)|toggle\s*theme|switch\s*theme|change\s*theme/.test(q)) {
+    if (q.includes('dark')) {
+      applyTheme('dark');
+      return '🌙 Switched to **Dark Mode**! You can also toggle anytime using the button in the top-right header.';
+    } else if (q.includes('light')) {
+      applyTheme('light');
+      return '☀️ Switched to **Light Mode**! You can also toggle anytime using the button in the top-right header.';
+    } else {
+      const next = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      return `🌓 Switched to **${next === 'dark' ? 'Dark' : 'Light'} Mode**!`;
+    }
   }
 
   // Right now / Where is my class
